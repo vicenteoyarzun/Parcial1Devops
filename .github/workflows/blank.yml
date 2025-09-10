@@ -1,0 +1,31 @@
+
+
+name: CI
+
+
+on:
+
+  push:
+    branches: [ "main" ]
+    
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+      
+      - name: Push confirmado
+        run: echo Push confirmado
+
+      - name: Uso markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v20
+        with:
+          globs: "**/*.md"
+          config: ".markdownlint.json"
